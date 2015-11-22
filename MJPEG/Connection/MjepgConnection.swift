@@ -42,7 +42,7 @@ public class MJPEGConnection {
             
             isConnectionSetup = true
         } else {
-            println("cant create connection")
+            print("cant create connection")
         }
     }
     

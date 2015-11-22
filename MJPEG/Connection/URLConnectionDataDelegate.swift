@@ -31,15 +31,15 @@ public class URLConnectionDataDelegate: NSObject, NSURLConnectionDataDelegate {
         
         // NSURLAuthenticationMethod - ServerTrust
         if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust {
-            let credential = NSURLCredential(forTrust: challenge.protectionSpace.serverTrust)
-            challenge.sender.useCredential(credential , forAuthenticationChallenge: challenge)
+            let credential = NSURLCredential(forTrust: challenge.protectionSpace.serverTrust!)
+            challenge.sender!.useCredential(credential , forAuthenticationChallenge: challenge)
         }
         
         // NSURLAuthenticationMethod - HTTPBasic
         if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodHTTPBasic {
             if self.connectionData.user != nil && self.connectionData.password != nil {
                 let credential = NSURLCredential(user: connectionData.user!, password: connectionData.password!, persistence: NSURLCredentialPersistence.Synchronizable)
-                challenge.sender.useCredential(credential, forAuthenticationChallenge: challenge)
+                challenge.sender!.useCredential(credential, forAuthenticationChallenge: challenge)
             }
         }
     }

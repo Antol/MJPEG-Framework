@@ -15,7 +15,7 @@ public class MJPEGImageView: UIImageView, URLConnectionDelegate {
     
     private var mjpegConnection: MJPEGConnection?
 
-    public func setupMJPEGConnection(#connectionData: ConnectionData) {
+    public func setupMJPEGConnection(connectionData connectionData: ConnectionData) {
         mjpegConnection = MJPEGConnection(connectionData: connectionData, delegate: self)
     }
     
@@ -37,9 +37,9 @@ public class MJPEGImageView: UIImageView, URLConnectionDelegate {
     /**
     Override image with data from the MJPEGConnection
     
-    :param: data ImageData
+    - parameter data: ImageData
     */
-    public func responseDidFinisch(#data: NSData) {
+    public func responseDidFinisch(data data: NSData) {
         if let mjpegImage = UIImage(data: data) {
             image = mjpegImage
         }
